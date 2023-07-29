@@ -66,12 +66,7 @@ namespace DialogueFlow.WebHook
                     }
                     else
                     {
-                        WebhookResponse response = new WebhookResponse
-                        {
-                            FulfillmentText = "Order status unavailable."
-                        };
-                        string responseJson = response.ToString();
-                        return Results.Content(responseJson, "application/json");
+                        throw new HttpRequestException(_client.ReasonPhrase);
                     }
 
                 }
